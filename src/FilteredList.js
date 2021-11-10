@@ -11,19 +11,21 @@ class FilteredList extends Component {
         super(props)
 
         const list = [
-            {name: `Urszula`, lastname: `Jeziorna`},
-            {name: `Krystian`, lastname: `Dziopa`},
-            {name: `Łukasz`, lastname: `Badocha`},
-            {name: `Łukasz`, lastname: `Misiura`},
-            {name: `Ewa`, lastname: `Drozd`},
-            {name: `Marcin`, lastname: `Misiura`},
-            {name: `Monika`, lastname: `Misiura`}
+            { name: `Urszula`, lastname: `Jeziorna` },
+            { name: `Krystian`, lastname: `Dziopa` },
+            { name: `Łukasz`, lastname: `Badocha` },
+            { name: `Łukasz`, lastname: `Misiura` },
+            { name: `Ewa`, lastname: `Drozd` },
+            { name: `Marcin`, lastname: `Misiura` },
+            { name: `Monika`, lastname: `Misiura` }
         ];
+
+
 
         this.state = {
             inputValue: '',
             list: list,
-            filteredList: list,
+            filteredList: []
         }
     }
 
@@ -31,12 +33,35 @@ class FilteredList extends Component {
 
     handleChange = (e) => {
 
+        // console.log(e);
 
-        
+
+        // let listToFilter = this.state.list;
+        // let searchString = e.target.value.toLowerCase();
+
+        // let filteredElements = [];
+        // console.log(filteredElements);
+
+
+        // listToFilter.filter((element) => {
+
+        //     // console.log(element);
+
+        //     if ((element.name.toLowerCase().includes(searchString)) || (element.lastname.toLowerCase().includes(searchString))) {
+
+        //         filteredElements.push(element)
+
+        //     }
+
+
+        // })
+
+
 
 
         this.setState({
-            inputValue: e.target.value
+            inputValue: e.target.value,
+            // filteredList: filteredElements
         })
     }
 
@@ -56,7 +81,7 @@ class FilteredList extends Component {
         return (
             <div>
                 <Filters usersString={this.state.inputValue}
-                stringIntroduction={this.handleChange}/>
+                    stringIntroduction={this.handleChange} />
                 <List listToDisplay={this.state.filteredList}/>
 
             </div>
