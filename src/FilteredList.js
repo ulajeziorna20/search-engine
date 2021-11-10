@@ -25,7 +25,7 @@ class FilteredList extends Component {
         this.state = {
             inputValue: '',
             list: list,
-            filteredList: []
+            filteredList: [] //nie działało gdy wartością był obiekt list?
         }
     }
 
@@ -36,25 +36,30 @@ class FilteredList extends Component {
         // console.log(e);
 
 
-        // let listToFilter = this.state.list;
-        // let searchString = e.target.value.toLowerCase();
-
-        // let filteredElements = [];
-        // console.log(filteredElements);
+        let listToFilter = this.state.list;
+        let searchString = e.target.value.toLowerCase();
+        let filteredElements = [];
 
 
-        // listToFilter.filter((element) => {
+        const asArray = Object.entries(listToFilter);
 
-        //     // console.log(element);
+        const filtered = asArray.filter(([key, element]) => {
 
-        //     if ((element.name.toLowerCase().includes(searchString)) || (element.lastname.toLowerCase().includes(searchString))) {
+            // console.log(key);
+            // console.log(element);
 
-        //         filteredElements.push(element)
+            if ((element.name.toLowerCase().includes(searchString)) || (element.lastname.toLowerCase().includes(searchString))) {
 
-        //     }
+                filteredElements.push(element)
 
 
-        // })
+            }
+
+
+        })
+
+        // const justStrings = Object.fromEntries(filteredElements);
+        // console.log(justStrings);
 
 
 
@@ -82,7 +87,7 @@ class FilteredList extends Component {
             <div>
                 <Filters usersString={this.state.inputValue}
                     stringIntroduction={this.handleChange} />
-                <List listToDisplay={this.state.filteredList}/>
+                <List listToDisplay={this.state.filteredList} />
 
             </div>
         )
