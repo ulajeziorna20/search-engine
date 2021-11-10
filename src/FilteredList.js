@@ -25,7 +25,7 @@ class FilteredList extends Component {
         this.state = {
             inputValue: '',
             list: list,
-            filteredList: [] //nie działało gdy wartością był obiekt list?
+            filteredList: [{}] //nie działało gdy wartością był obiekt list?
         }
     }
 
