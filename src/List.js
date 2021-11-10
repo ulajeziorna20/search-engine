@@ -5,6 +5,11 @@ import './List.css';
 function List(props) {
 
 
+    let listJSX = props.listToDisplay.map((object, index) => {
+
+        return <li key={index}>{object.name} {object.lastname}</li>
+
+    })
 
      
 
@@ -12,7 +17,7 @@ function List(props) {
     return (
         <div>
             <ul className="users-list">
-                {props.listToDisplay}
+                {listJSX}
             </ul>
         </div>
     )

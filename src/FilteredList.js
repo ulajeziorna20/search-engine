@@ -25,7 +25,7 @@ class FilteredList extends Component {
         this.state = {
             inputValue: '',
             list: list,
-            filteredList: [{}] //nie działało gdy wartością był obiekt list?
+            filteredList: list //nie działało gdy wartością był obiekt list?
         }
     }
 
@@ -66,7 +66,7 @@ class FilteredList extends Component {
 
         this.setState({
             inputValue: e.target.value,
-            // filteredList: filteredElements
+            filteredList: filteredElements
         })
     }
 
