@@ -3,7 +3,7 @@ import './FilteredList.css';
 import Filters from './Filters';
 import List from './List';
 import uniqueId from 'lodash.uniqueid';
-// import './lodash';
+
 
 
 class FilteredList extends Component {
@@ -11,19 +11,24 @@ class FilteredList extends Component {
     constructor(props) {
         super(props)
 
-        this.id = uniqueId(prefix)
+        // this.id = uniqueId('prefix')
+        // console.log(this.id)
         // this.id = newId();
 
+
+
         const list = [
-            { name: `Urszula`, lastname: `Jeziorna`, id: this.id},
-            { name: `Krystian`, lastname: `Dziopa`, id: this.id },
-            { name: `Łukasz`, lastname: `Badocha`, id: this.id },
-            { name: `Łukasz`, lastname: `Misiura`, id: this.id },
-            { name: `Ewa`, lastname: `Drozd`, id: this.id },
-            { name: `Marcin`, lastname: `Misiura`, id: this.id },
-            { name: `Monika`, lastname: `Misiura`, id: this.id }
+            { name: `Urszula`, lastname: `Jeziorna`, id: uniqueId('prefix'),},
+            { name: `Krystian`, lastname: `Dziopa`, id: uniqueId('prefix') },
+            { name: `Łukasz`, lastname: `Badocha`, id: uniqueId('prefix') },
+            { name: `Łukasz`, lastname: `Misiura`, id: uniqueId('prefix') },
+            { name: `Ewa`, lastname: `Drozd`, id: uniqueId('prefix') },
+            { name: `Marcin`, lastname: `Misiura`, id: uniqueId('prefix') },
+            { name: `Monika`, lastname: `Misiura`, id: uniqueId('prefix') }
         ];
 
+
+       
 
 
         this.state = {
