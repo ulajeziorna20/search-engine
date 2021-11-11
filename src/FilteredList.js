@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import './FilteredList.css';
 import Filters from './Filters';
 import List from './List';
-
+import uniqueId from 'lodash.uniqueid';
+// import './lodash';
 
 
 class FilteredList extends Component {
@@ -10,14 +11,17 @@ class FilteredList extends Component {
     constructor(props) {
         super(props)
 
+        this.id = uniqueId(prefix)
+        // this.id = newId();
+
         const list = [
-            { name: `Urszula`, lastname: `Jeziorna` },
-            { name: `Krystian`, lastname: `Dziopa` },
-            { name: `Łukasz`, lastname: `Badocha` },
-            { name: `Łukasz`, lastname: `Misiura` },
-            { name: `Ewa`, lastname: `Drozd` },
-            { name: `Marcin`, lastname: `Misiura` },
-            { name: `Monika`, lastname: `Misiura` }
+            { name: `Urszula`, lastname: `Jeziorna`, id: this.id},
+            { name: `Krystian`, lastname: `Dziopa`, id: this.id },
+            { name: `Łukasz`, lastname: `Badocha`, id: this.id },
+            { name: `Łukasz`, lastname: `Misiura`, id: this.id },
+            { name: `Ewa`, lastname: `Drozd`, id: this.id },
+            { name: `Marcin`, lastname: `Misiura`, id: this.id },
+            { name: `Monika`, lastname: `Misiura`, id: this.id }
         ];
 
 
