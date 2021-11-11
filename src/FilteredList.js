@@ -28,7 +28,23 @@ class FilteredList extends Component {
         ];
 
 
-       
+        list.forEach((employee) => {
+            // console.log(employee);
+            // console.log(employee.name);
+
+            let employeeName = employee.name;
+
+            if (employeeName.charAt(employeeName.length - 1) === `a`) {
+                employee.sex = `female`;
+            } else {
+                employee.sex = `male`;
+            }
+
+        })
+
+
+        console.log(list);
+
 
 
         this.state = {
