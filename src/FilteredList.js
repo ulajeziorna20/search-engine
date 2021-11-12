@@ -56,7 +56,7 @@ class FilteredList extends Component {
             inputValue: '',
             list: list,
             filteredList: list,
-            checkValues: true
+            checkValuesSex: true
         }
     }
 
@@ -81,7 +81,7 @@ class FilteredList extends Component {
 
 
         this.setState({
-                checkValues: checked
+            checkValuesSex: checked
         })
 
     }
@@ -96,6 +96,16 @@ class FilteredList extends Component {
     handleChange = (e) => {
 
         // console.log(e);
+
+        let sexFilter = this.state.checkValuesSex
+
+
+        // if () {
+
+        // }
+
+
+
 
 
         let listToFilter = this.state.list;
@@ -150,7 +160,7 @@ class FilteredList extends Component {
                 <Filters usersString={this.state.inputValue}
                     stringIntroduction={this.handleChange}
                     changeBox={this.handleCheckBox}
-                    checkOption={this.state.checkValues} />
+                    checkOption={this.state.checkValuesSex} />
                 <List listToDisplay={this.state.filteredList} />
 
             </div>
