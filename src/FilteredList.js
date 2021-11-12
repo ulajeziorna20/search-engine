@@ -56,8 +56,8 @@ class FilteredList extends Component {
             inputValue: '',
             list: list,
             filteredList: list,
-            checkSexWoman: true,
-            checkSexMan: true
+            checkSexWoman: false,
+            checkSexMan: false
         }
     }
 
@@ -69,12 +69,13 @@ class FilteredList extends Component {
         // console.log(`checkbox!`);
         // console.log(event);
         // console.log(event.target);
-        console.log(event.target.checked);
+        // console.log(event.target.checked);
 
         let checked = this.state.checkSexWoman
+        // console.log(event.target.checked);
 
         checked = !checked
-
+        console.log(checked);
 
         this.setState({
             checkSexWoman: checked
@@ -91,12 +92,13 @@ class FilteredList extends Component {
         // console.log(`checkbox!`);
         // console.log(event);
         // console.log(event.target);
-        console.log(event.target.checked);
+        // console.log(event.target.checked);
 
         let checked = this.state.checkSexMan
+        // console.log(checked);
 
         checked = !checked
-
+        console.log(checked);
 
         this.setState({
             checkSexMan: checked
@@ -115,53 +117,72 @@ class FilteredList extends Component {
 
         // console.log(e);
 
-        let sexWoman = this.state.checkSexWoman;
-        let sexMan = this.state.checkSexMan;
-        console.log(sexWoman);
-        console.log(sexMan);
-
-
-        // if (sexFilter ===) {
-
-        // }
-
-
-
-
 
         let listToFilter = this.state.list;
+        // console.log(listToFilter);
         let searchString = e.target.value.toLowerCase();
-        let filteredElements = [];
+        // console.log(searchString);
 
 
-        const asArray = Object.entries(listToFilter);
 
-        const filtered = asArray.filter(([key, element]) => {
-
-            // console.log(key);
-            // console.log(element);
-
-            if ((element.name.toLowerCase().includes(searchString)) || (element.lastname.toLowerCase().includes(searchString))) {
-
-                filteredElements.push(element)
+        let sexWoman = this.state.checkSexWoman;
+        let sexMan = this.state.checkSexMan;
+        // console.log(sexWoman);
+        // console.log(sexMan);
 
 
+
+
+        if ((sexWoman === true) && (sexMan === true)) {
+
+            listToFilter = this.state.list
+
+        } else if ((sexWoman === true) && (sexMan === false)) {
+
+            listToFilter = listToFilter.filter((person) => {
+
+                return (person.sex === `female`)
+            })
+
+        } else {
+
+            listToFilter = listToFilter.filter((person) => {
+
+                return (person.sex === `male`)
+            })
+
+        }
+
+
+
+        console.log(listToFilter);
+
+
+
+        let filteredEmployees = listToFilter.filter((employee) => {
+
+            //    console.log(employee);
+            //    console.log(employee.name);
+
+            if ((employee.name.toLowerCase().includes(searchString)) || (employee.lastname.toLowerCase().includes(searchString))) {
+
+                return employee
             }
-
-
         })
 
-        // const justStrings = Object.fromEntries(filteredElements);
-        // console.log(justStrings);
+
+        console.log(filteredEmployees);
 
 
 
 
         this.setState({
             inputValue: e.target.value,
-            filteredList: filteredElements
+            filteredList: filteredEmployees
         })
     }
+
+
 
 
 
