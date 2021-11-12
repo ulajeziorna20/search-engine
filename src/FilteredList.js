@@ -11,6 +11,11 @@ class FilteredList extends Component {
     constructor(props) {
         super(props)
 
+        // console.log(uniqueId);
+        // console.log(uniqueId('pl'));
+        // console.log(uniqueId('com'));
+
+
         // this.id = uniqueId('prefix')
         // console.log(this.id)
         // this.id = newId();
@@ -18,7 +23,7 @@ class FilteredList extends Component {
 
 
         const list = [
-            { name: `Urszula`, lastname: `Jeziorna`, id: uniqueId('prefix'),},
+            { name: `Urszula`, lastname: `Jeziorna`, id: uniqueId('prefix'), },
             { name: `Krystian`, lastname: `Dziopa`, id: uniqueId('prefix') },
             { name: `Łukasz`, lastname: `Badocha`, id: uniqueId('prefix') },
             { name: `Łukasz`, lastname: `Misiura`, id: uniqueId('prefix') },
@@ -43,16 +48,48 @@ class FilteredList extends Component {
         })
 
 
-        console.log(list);
+        // console.log(list);
 
 
 
         this.state = {
             inputValue: '',
             list: list,
-            filteredList: list //nie działało gdy wartością był obiekt list?
+            filteredList: list,
+            checkValues: {}
         }
     }
+
+
+
+    handleCheckBox = (name, event) => {
+
+
+        console.log(`checkbox!`);
+
+
+
+
+    }
+
+
+
+    // handleCheckBox(event) {
+    //     const target = event.target;
+    //     const value = target.type === 'checkbox' ? target.checked : target.value;
+    //     const name = target.name;
+
+    //     this.setState({
+    //         [name]: value
+    //     });
+    // }
+
+
+
+
+
+
+
 
 
 
@@ -111,7 +148,9 @@ class FilteredList extends Component {
         return (
             <div>
                 <Filters usersString={this.state.inputValue}
-                    stringIntroduction={this.handleChange} />
+                    stringIntroduction={this.handleChange}
+                    changeBox={this.handleCheckBox}
+                    checkOption={this.state.checkValues} />
                 <List listToDisplay={this.state.filteredList} />
 
             </div>

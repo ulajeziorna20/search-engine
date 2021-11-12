@@ -10,11 +10,23 @@ function Filters(props) {
     return (
 
         <div className="main-div-search">
-            <div className="header-list">
-                <h2 >User's List</h2>
+            <div>
+                <div className="header-list">
+                    <h2 >User's List</h2>
+                </div>
+                <div className="div-search-input">
+                    <input type="text" name="search-input" id="serach-input" value={props.usersString} onChange={props.stringIntroduction} placeholder="Find employee..."></input>
+                </div>
             </div>
-            <div className="div-search-input">
-                <input type="text" name="search-input" id="serach-input" value={props.usersString} onChange={props.stringIntroduction} placeholder="Find employee..."></input>
+            <div>
+                <div>
+                    <input type="checkbox" id="female" name="female" onChange={props.changeBox} checked={props.checkOption}/>
+                    <label for="female">Kobiety</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="male" name="male" onChange={props.changeBox} checked={props.checkOption}/>
+                    <label for="male">Mężczyźni</label>
+                </div>
             </div>
 
         </div>
