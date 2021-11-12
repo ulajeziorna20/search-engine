@@ -75,7 +75,7 @@ class FilteredList extends Component {
         // console.log(event.target.checked);
 
         checked = !checked
-        console.log(checked);
+        // console.log(checked);
 
         this.setState({
             checkSexWoman: checked
@@ -98,7 +98,7 @@ class FilteredList extends Component {
         // console.log(checked);
 
         checked = !checked
-        console.log(checked);
+        // console.log(checked);
 
         this.setState({
             checkSexMan: checked
@@ -155,7 +155,7 @@ class FilteredList extends Component {
 
 
 
-        console.log(listToFilter);
+        // console.log(listToFilter);
 
 
 
@@ -171,7 +171,7 @@ class FilteredList extends Component {
         })
 
 
-        console.log(filteredEmployees);
+        // console.log(filteredEmployees);
 
 
 
