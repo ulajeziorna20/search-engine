@@ -56,32 +56,50 @@ class FilteredList extends Component {
             inputValue: '',
             list: list,
             filteredList: list,
-            checkValuesSex: true
+            checkSexWoman: true,
+            checkSexMan: true
         }
     }
 
 
 
-    handleCheckBox = (event) => {
+    handleCheckBoxWoman = (event) => {
 
 
-        console.log(`checkbox!`);
-        console.log(event);
-        console.log(event.target);
+        // console.log(`checkbox!`);
+        // console.log(event);
+        // console.log(event.target);
         console.log(event.target.checked);
 
-        let checked = event.target.checked;
+        let checked = this.state.checkSexWoman
 
-        if (checked === true) {
-            checked = false
-        } else {
-            checked = true
-        }
-      
+        checked = !checked
 
 
         this.setState({
-            checkValuesSex: checked
+            checkSexWoman: checked
+        })
+
+    }
+
+
+
+
+    handleCheckBoxMan = (event) => {
+
+
+        // console.log(`checkbox!`);
+        // console.log(event);
+        // console.log(event.target);
+        console.log(event.target.checked);
+
+        let checked = this.state.checkSexMan
+
+        checked = !checked
+
+
+        this.setState({
+            checkSexMan: checked
         })
 
     }
@@ -97,10 +115,13 @@ class FilteredList extends Component {
 
         // console.log(e);
 
-        let sexFilter = this.state.checkValuesSex
+        let sexWoman = this.state.checkSexWoman;
+        let sexMan = this.state.checkSexMan;
+        console.log(sexWoman);
+        console.log(sexMan);
 
 
-        // if () {
+        // if (sexFilter ===) {
 
         // }
 
@@ -147,9 +168,6 @@ class FilteredList extends Component {
 
 
 
-
-
-
     render() {
 
 
@@ -159,8 +177,9 @@ class FilteredList extends Component {
             <div>
                 <Filters usersString={this.state.inputValue}
                     stringIntroduction={this.handleChange}
-                    changeBox={this.handleCheckBox}
-                    checkOption={this.state.checkValuesSex} />
+                    changeBoxWoman={this.handleCheckBoxWoman}
+                    changeBoxMan={this.handleCheckBoxMan}
+                    checkOptionWoman={this.state.checkSexWoman} checkOptionMan={this.state.checkSexMan} />
                 <List listToDisplay={this.state.filteredList} />
 
             </div>

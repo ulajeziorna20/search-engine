@@ -20,11 +20,11 @@ function Filters(props) {
             </div>
             <div>
                 <div>
-                    <input type="checkbox" id="female" name="female" onChange={props.changeBox} checkedValue={props.checkOption}/>
+                    <input type="checkbox" id="female" name="female" onChange={props.changeBoxWoman} checkedValue={props.checkOptionWoman} />
                     <label for="female">Kobiety</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="male" name="male" onChange={props.changeBox} checkedValue={props.checkOption} />
+                    <input type="checkbox" id="male" name="male" onChange={props.changeBoxMan} checkedValue={props.checkOptionMan} />
                     <label for="male">Mężczyźni</label>
                 </div>
             </div>
