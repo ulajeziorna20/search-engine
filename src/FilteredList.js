@@ -69,10 +69,20 @@ class FilteredList extends Component {
         console.log(event);
         console.log(event.target);
         console.log(event.target.checked);
+
+        let checked = event.target.checked;
+
+        if (checked === true) {
+            checked = false
+        } else {
+            checked = true
+        }
       
 
 
-
+        this.setState({
+                checkValues: checked
+        })
 
     }
 
