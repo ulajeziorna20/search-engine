@@ -56,35 +56,25 @@ class FilteredList extends Component {
             inputValue: '',
             list: list,
             filteredList: list,
-            checkValues: {}
+            checkValues: true
         }
     }
 
 
 
-    handleCheckBox = (name, event) => {
+    handleCheckBox = (event) => {
 
 
         console.log(`checkbox!`);
+        console.log(event);
+        console.log(event.target);
+        console.log(event.target.checked);
+      
 
 
 
 
     }
-
-
-
-    // handleCheckBox(event) {
-    //     const target = event.target;
-    //     const value = target.type === 'checkbox' ? target.checked : target.value;
-    //     const name = target.name;
-
-    //     this.setState({
-    //         [name]: value
-    //     });
-    // }
-
-
 
 
 
