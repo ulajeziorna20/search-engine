@@ -116,6 +116,8 @@ class FilteredList extends Component {
             let str = this.state.inputValue;
             // console.log(str);
 
+           
+
             if (((employee.name.toLowerCase() + ' ' + employee.lastname.toLowerCase()).includes(str.toLocaleLowerCase())) || ((employee.lastname.toLowerCase() + ' ' + employee.name.toLowerCase()).includes(str.toLocaleLowerCase()))) {
 
                 if (employee.sex === 'female' && this.state.checkSexWoman) {
@@ -124,6 +126,7 @@ class FilteredList extends Component {
                     return employee
                 }
             }
+
         })
 
         // console.log(filteredEmployees);
