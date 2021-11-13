@@ -64,21 +64,10 @@ class FilteredList extends Component {
 
 
     handleCheckBoxWoman = (event) => {
-
-
-        // console.log(`checkbox!`);
-        // console.log(event);
-        // console.log(event.target);
         // console.log(event.target.checked);
-
-        let checked = this.state.checkSexWoman
-        // console.log(event.target.checked);
-
-        checked = !checked
-        // console.log(checked);
 
         this.setState({
-            checkSexWoman: checked
+            checkSexWoman: event.target.checked
         })
 
     }
@@ -87,21 +76,10 @@ class FilteredList extends Component {
 
 
     handleCheckBoxMan = (event) => {
-
-
-        // console.log(`checkbox!`);
-        // console.log(event);
-        // console.log(event.target);
         // console.log(event.target.checked);
 
-        let checked = this.state.checkSexMan
-        // console.log(checked);
-
-        checked = !checked
-        // console.log(checked);
-
         this.setState({
-            checkSexMan: checked
+            checkSexMan: event.target.checked
         })
 
     }
@@ -114,7 +92,6 @@ class FilteredList extends Component {
 
 
     handleChange = (e) => {
-
         // console.log(e);
 
 
