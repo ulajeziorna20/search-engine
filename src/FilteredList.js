@@ -56,8 +56,8 @@ class FilteredList extends Component {
             inputValue: '',
             list: list,
             filteredList: list,
-            checkSexWoman: false,
-            checkSexMan: false
+            checkSexWoman: true,
+            checkSexMan: true
         }
     }
 
@@ -68,9 +68,9 @@ class FilteredList extends Component {
 
         this.setState({
             checkSexWoman: event.target.checked
-        }), () => {
+        }, () => {
             this.filterList()
-        }
+        })
 
     }
 
@@ -82,13 +82,11 @@ class FilteredList extends Component {
 
         this.setState({
             checkSexMan: event.target.checked
-        }), () => {
+        }, () => {
             this.filterList()
-        }
+        })
 
     }
-
-
 
 
 
@@ -101,9 +99,9 @@ class FilteredList extends Component {
 
         this.setState({
             inputValue: e.target.value,
-        }), () => {
+        }, () => {
             this.filterList()
-        }
+        })
     }
 
 
@@ -132,7 +130,7 @@ class FilteredList extends Component {
 
 
         this.setState({
-            filterList: filteredEmployees
+            filteredList: filteredEmployees
         })
 
     }
