@@ -15,16 +15,16 @@ function Filters(props) {
                     <h2 >User's List</h2>
                 </div>
                 <div className="div-search-input">
-                    <input type="text" name="search-input" id="serach-input" value={props.usersString} onChange={props.stringIntroduction} placeholder="Find employee..."></input>
+                    <input type="text" name="search-input" id="serach-input" value={props.usersString} onChange={props.enteredString} placeholder="Find employee..."></input>
                 </div>
             </div>
             <div>
                 <div>
-                    <input type="checkbox" id="female" name="female" onChange={props.changeBoxWoman} checkedValue={props.checkOptionWoman} />
+                    <input type="checkbox" id="female" name="female" onChange={props.changeBoxWoman} checkedValue={props.valueInputWoman} />
                     <label for="female">Kobiety</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="male" name="male" onChange={props.changeBoxMan} checkedValue={props.checkOptionMan} />
+                    <input type="checkbox" id="male" name="male" onChange={props.changeBoxMan} checkedValue={props.valueInputMan} />
                     <label for="male">Mężczyźni</label>
                 </div>
             </div>

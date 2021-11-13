@@ -68,7 +68,9 @@ class FilteredList extends Component {
 
         this.setState({
             checkSexWoman: event.target.checked
-        })
+        }), () => {
+            this.filterList()
+        }
 
     }
 
@@ -80,7 +82,9 @@ class FilteredList extends Component {
 
         this.setState({
             checkSexMan: event.target.checked
-        })
+        }), () => {
+            this.filterList()
+        }
 
     }
 
@@ -93,71 +97,52 @@ class FilteredList extends Component {
 
     handleChange = (e) => {
         // console.log(e);
-
-
-        let listToFilter = this.state.list;
         // console.log(listToFilter);
-        let searchString = e.target.value.toLowerCase();
-        // console.log(searchString);
 
-
-
-        let sexWoman = this.state.checkSexWoman;
-        let sexMan = this.state.checkSexMan;
-        // console.log(sexWoman);
-        // console.log(sexMan);
-
-
-
-
-        if ((sexWoman === true) && (sexMan === true)) {
-
-            listToFilter = this.state.list
-
-        } else if ((sexWoman === true) && (sexMan === false)) {
-
-            listToFilter = listToFilter.filter((person) => {
-
-                return (person.sex === `female`)
-            })
-
-        } else {
-
-            listToFilter = listToFilter.filter((person) => {
-
-                return (person.sex === `male`)
-            })
-
+        this.setState({
+            inputValue: e.target.value,
+        }), () => {
+            this.filterList()
         }
+    }
 
 
 
-        // console.log(listToFilter);
+    filterList = () => {
 
-
-
-        let filteredEmployees = listToFilter.filter((employee) => {
+        let filteredEmployees = this.state.list.filter((employee) => {
 
             //    console.log(employee);
             //    console.log(employee.name);
 
-            if ((employee.name.toLowerCase().includes(searchString)) || (employee.lastname.toLowerCase().includes(searchString))) {
+            let str = this.state.inputValue;
+            // console.log(str);
 
-                return employee
+            if (((employee.name.toLowerCase() + ' ' + employee.lastname.toLowerCase()).includes(str.toLocaleLowerCase())) || ((employee.lastname.toLowerCase() + ' ' + employee.name.toLowerCase()).includes(str.toLocaleLowerCase()))) {
+
+                if (employee.sex === 'female' && this.state.checkSexWoman) {
+                    return employee
+                } else if (employee.sex === 'male' && this.state.checkSexMan) {
+                    return employee
+                }
             }
         })
-
 
         // console.log(filteredEmployees);
 
 
-
-
         this.setState({
-            inputValue: e.target.value,
-            filteredList: filteredEmployees
+            filterList: filteredEmployees
         })
+
     }
+
+
+
+
+
+
+
 
 
 
@@ -174,10 +159,10 @@ class FilteredList extends Component {
         return (
             <div>
                 <Filters usersString={this.state.inputValue}
-                    stringIntroduction={this.handleChange}
+                    enteredString={this.handleChange}
                     changeBoxWoman={this.handleCheckBoxWoman}
                     changeBoxMan={this.handleCheckBoxMan}
-                    checkOptionWoman={this.state.checkSexWoman} checkOptionMan={this.state.checkSexMan} />
+                    valueInputWoman={this.state.checkSexWoman} valueInputMan={this.state.checkSexMan} />
                 <List listToDisplay={this.state.filteredList} />
 
             </div>
