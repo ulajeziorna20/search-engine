@@ -122,9 +122,9 @@ class FilteredList extends Component {
             if (((employee.name.toLowerCase() + ' ' + employee.lastname.toLowerCase()).includes(str.toLocaleLowerCase())) || ((employee.lastname.toLowerCase() + ' ' + employee.name.toLowerCase()).includes(str.toLocaleLowerCase()))) {
 
                 if (employee.sex === 'female' && this.state.checkSexWoman) {
-                    finalFilteredList += employee
+                    finalFilteredList.push(employee)
                 } else if (employee.sex === 'male' && this.state.checkSexMan) {
-                    finalFilteredList += employee
+                    finalFilteredList.push(employee)
                 }
             }
 
