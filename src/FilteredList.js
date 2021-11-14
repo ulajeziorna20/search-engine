@@ -115,17 +115,21 @@ class FilteredList extends Component {
 
             let str = this.state.inputValue;
             // console.log(str);
-
+            let finalFilteredList = [];
+            console.log(finalFilteredList);
            
 
             if (((employee.name.toLowerCase() + ' ' + employee.lastname.toLowerCase()).includes(str.toLocaleLowerCase())) || ((employee.lastname.toLowerCase() + ' ' + employee.name.toLowerCase()).includes(str.toLocaleLowerCase()))) {
 
                 if (employee.sex === 'female' && this.state.checkSexWoman) {
-                    return employee
+                    finalFilteredList += employee
                 } else if (employee.sex === 'male' && this.state.checkSexMan) {
-                    return employee
+                    finalFilteredList += employee
                 }
             }
+
+
+            return finalFilteredList;
 
         })
 
@@ -134,7 +138,7 @@ class FilteredList extends Component {
 
         this.setState({
             filteredList: filteredEmployees
-        })
+      })
 
     }
 
